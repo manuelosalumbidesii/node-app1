@@ -1,4 +1,4 @@
-name: 🚀 CI/CD Test, Lint, Build, Push
+name: 🚀 CI/CD Pipeline Test, Lint, Build, Push
 
 on:
   push:
@@ -18,7 +18,7 @@ jobs:
           node-version: 18
 
       - name: 📦 Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: 🧪 Run unit tests
         run: npm test

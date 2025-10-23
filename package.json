@@ -1,13 +1,17 @@
 {
   "name": "sample-node-app",
   "version": "1.0.0",
-  "description": "",
+  "description": "Simple Node.js Hello World using http",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "test": "node --test",
+    "lint": "eslint ."
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "author": "Manuelo",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^8.50.0"
+  }
 }

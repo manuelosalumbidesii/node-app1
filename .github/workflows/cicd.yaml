@@ -31,12 +31,15 @@ jobs:
       - name: 🐳 Log in to Docker Hub
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
 
-      - name: 📦 Build Docker image (latest + commit SHA)
+      - name: 📦 Build Docker image (latest + version)
         run: |
+          VERSION=$(node -p "require('./package.json').version.split('.')[0]") # major version only
+          echo "Building version v$VERSION"
           docker build -t ${{ secrets.DOCKER_USERNAME }}/node-hello:latest \
-                       -t ${{ secrets.DOCKER_USERNAME }}/node-hello:${{ github.sha }} .
+                       -t ${{ secrets.DOCKER_USERNAME }}/node-hello:v$VERSION .
 
       - name: 🚚 Push Docker image
         run: |
+          VERSION=$(node -p "require('./package.json').version.split('.')[0]")
           docker push ${{ secrets.DOCKER_USERNAME }}/node-hello:latest
-          docker push ${{ secrets.DOCKER_USERNAME }}/node-hello:${{ github.sha }}
+          docker push ${{ secrets.DOCKER_USERNAME }}/node-hello:v$VERSION

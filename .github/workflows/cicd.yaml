@@ -43,3 +43,5 @@ jobs:
           VERSION=$(node -p "require('./package.json').version.split('.')[0]")
           docker push ${{ secrets.DOCKER_USERNAME }}/node-hello:latest
           docker push ${{ secrets.DOCKER_USERNAME }}/node-hello:v$VERSION
+
+          

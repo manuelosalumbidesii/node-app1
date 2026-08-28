@@ -1,4 +1,4 @@
-name: 🚀 CI/CD Pipeline Test, Lint, Build, Push
+name: 🚀 CI/CD Pipeline Test, Lint, Build, Pushhh
 
 on:
   push:
